@@ -14,11 +14,14 @@ let cargoHold = {
   toogleCleanedStatus: function (){
     switch (cargoHold.cleaned){
       case true:
-        cargoHold.cleaned = false;
+        this.cleaned = false;
         break;
       case false:
-        cargoHold.cleaned = true;
+        this.cleaned = true;
     }
+  },
+  addDayForIncidentReport: function() {
+    this.daysSinceLastIncident += 1;
   }
 };
 
@@ -107,3 +110,6 @@ cargoHold.toogleCleanedStatus();
 console.log(cargoHold.cleaned)
 cargoHold.toogleCleanedStatus();
 console.log(cargoHold.cleaned)
+
+cargoHold.addDayForIncidentReport();
+console.log(cargoHold.daysSinceLastIncident)
