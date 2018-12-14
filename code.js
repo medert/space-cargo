@@ -26,6 +26,9 @@ let cargoHold = {
   consolidateFuel: function(fuelCanisterPile){
     this.fuel = fuelCanisterPile.reduce((total, next) =>
       total = total + next)
+  },
+  retriveWorkingHyperdrive: function(hyperDrivePile){
+    this.hyperdrive = hyperDrivePile.find(string => string.includes('rusty') === false)
   }
 };
 
@@ -120,3 +123,6 @@ console.log(cargoHold.daysSinceLastIncident)
 
 cargoHold.consolidateFuel(fuelCanisterPile);
 console.log(cargoHold.fuel)
+
+cargoHold.retriveWorkingHyperdrive(hyperDrivePile);
+console.log(cargoHold.hyperdrive)
