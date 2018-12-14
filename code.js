@@ -22,6 +22,10 @@ let cargoHold = {
   },
   addDayForIncidentReport: function() {
     this.daysSinceLastIncident += 1;
+  },
+  consolidateFuel: function(fuelCanisterPile){
+    this.fuel = fuelCanisterPile.reduce((total, next) =>
+      total = total + next)
   }
 };
 
@@ -113,3 +117,6 @@ console.log(cargoHold.cleaned)
 
 cargoHold.addDayForIncidentReport();
 console.log(cargoHold.daysSinceLastIncident)
+
+cargoHold.consolidateFuel(fuelCanisterPile);
+console.log(cargoHold.fuel)
