@@ -29,6 +29,12 @@ let cargoHold = {
   },
   retriveWorkingHyperdrive: function(hyperDrivePile){
     this.hyperdrive = hyperDrivePile.find(string => string.includes('rusty') === false)
+  },
+  filterOutRecyclables: function(recyclablesPile){
+    this.recyclables = recyclablesPile.filter(item =>
+      item === 'paper' || item === 'plastic' ||
+      item === 'metal can' || item === 'glass'
+    )
   }
 };
 
@@ -126,3 +132,6 @@ console.log(cargoHold.fuel)
 
 cargoHold.retriveWorkingHyperdrive(hyperDrivePile);
 console.log(cargoHold.hyperdrive)
+
+cargoHold.filterOutRecyclables(recyclablesPile);
+console.log(cargoHold.recyclables)
