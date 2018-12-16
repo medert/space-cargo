@@ -35,7 +35,10 @@ let cargoHold = {
       item === 'paper' || item === 'plastic' ||
       item === 'metal can' || item === 'glass'
     )
-  }
+  },
+  consolidateTools: function(oldToolBinsPile){
+    oldToolBinsPile.forEach((item) => item.items.forEach (tool => this.toolBin.tools.push(tool)))
+  },
 };
 
 let fuelCanisterPile = [2, 5, 9, 2, 3, 4, 6, 8, 8, 2, 1, 0]
@@ -135,3 +138,6 @@ console.log(cargoHold.hyperdrive)
 
 cargoHold.filterOutRecyclables(recyclablesPile);
 console.log(cargoHold.recyclables)
+
+cargoHold.consolidateTools(oldToolBinsPile);
+console.log(cargoHold.toolBin)
