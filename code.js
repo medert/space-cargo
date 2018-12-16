@@ -41,6 +41,21 @@ let cargoHold = {
   },
   filterRobots: function(robotsPile){
     this.robotsForSale = robotsPile.filter(robot => robot.yearsOld <= 15)
+  },
+  consolidateOre: function(orePile){
+    orePile.forEach((item) =>
+    {
+      if(item.status === "stable") {
+        this.dilithiumOreWeight += item.weight
+      }
+    }
+    )
+  },
+  fuelUpRobots: function(){
+    this.robotsForSale.forEach((robot) => {
+      this.fuel = this.fuel - (5 - robot.fuel);
+      robot.fuel = 5;
+    })
   }
 };
 
@@ -147,3 +162,10 @@ console.log(cargoHold.toolBin)
 
 cargoHold.filterRobots(robotsPile);
 console.log(cargoHold.robotsForSale)
+
+cargoHold.consolidateOre(orePile);
+console.log(cargoHold.dilithiumOreWeight)
+
+cargoHold.fuelUpRobots();
+console.log(cargoHold.robotsForSale)
+console.log(cargoHold.fuel)
